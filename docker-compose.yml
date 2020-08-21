@@ -1,0 +1,26 @@
+version: "3"
+
+# Docker-compose used for dev, with mounting for live-reload
+services: 
+    db:
+        build: ./db
+    
+    api:
+        build: ./api
+        restart: always
+        volumes:
+            - ./api:/api
+        ports:
+            - "5000:5000"
+        depends_on: 
+            - db
+    
+    client:
+        build: ./client
+        restart: always
+        volumes:
+            - ./client/src:/app/src
+        ports:
+            - "3000:3000"
+        depends_on:
+            - api
