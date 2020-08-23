@@ -16,6 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MUIDataTable from "mui-datatables";
 import AppointmentToolbar from "../components/AppointmentToolbar.js"
 import CreateAppointment from "../components/CreateAppointment.js";
+import DeliverPrescription from "../components/DeliverPrescription.js"
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import { makeStyles } from '@material-ui/core/styles';
@@ -69,6 +70,7 @@ export default function PatientDashboard() {
     const classes = useStyles();
     const [user, setUser, clearUser] = useContext(UserContext);
     const [createAppointmentOpen, setCreateAppointmentOpen] = useState(false);
+    const [deliveryWindowOpen, setDeliveryWindowOpen] = useState(false);
     const patientID = useLocation().state;
     let [patient, setPatient] = useState({});
     let [prescriptions, setPrescriptions] = useState([])
@@ -164,7 +166,10 @@ export default function PatientDashboard() {
                                     setSelectedAppointment(appointments.filter((appointment) => appointment.id === rowData[1])[0])
                                 }}
                                 style={{marginRight: "20px"}}>View Related Appointment</Button>                        
-                        {rowData[5].props.children === "Ready for Pickup" && <Button color="primary">Order with HiRide</Button>}
+                        {rowData[5].props.children === "Ready for Pickup" && user.type === "patient" && <Button color="primary"
+                                                                                     onClick={() => {
+                                                                                         setDeliveryWindowOpen(true);
+                                                                                     }}>Deliver with HiRide</Button>}
                     </TableCell>
                 </TableRow>
             );
@@ -499,6 +504,7 @@ export default function PatientDashboard() {
                 </React.Fragment>
             }
             <CreateAppointment clinics={clinics} open={createAppointmentOpen} setOpen={setCreateAppointmentOpen} addAppointment={addAppointment} />
+            <DeliverPrescription open={deliveryWindowOpen} setOpen={setDeliveryWindowOpen}/>
         </div>
     )
 }
