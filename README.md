@@ -1,4 +1,4 @@
-# Class Connect
+# CheckUp
 
 CheckUp is a concept for a healthcare management platform that connects doctors and patients so they can manage their appointments and prescriptions, and allows patients to have prescriptions delivered to them when ready.
 
@@ -7,7 +7,9 @@ The front-end is built with React, which retrieves data from an API served by Fl
 
 ## Demo
 
-View a full demo here: https://vimeo.com/414123886.
+![Dashboard Preview](/docs/doctor_dashboard.png)
+
+View a full demo here: x.
 
 
 ## How to Run

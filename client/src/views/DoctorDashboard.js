@@ -43,7 +43,7 @@ export default function DoctorDashboard() {
   const [user, setUser, clearUser] = useContext(UserContext);
   const [patients, setPatients] = useState([])
   const [prescriptions, setPrescriptions] = useState([])
-  const {idToFetch, student = null} = useLocation().state;
+  const idToFetch = useLocation().state;
 
   const patientColumns = [{name: "id",
                      options: {display: false, viewColumns: false, filter: false}},
@@ -67,7 +67,7 @@ const prescriptionColumns = [{name: "name",
                      label: "Status",
                      options : {customBodyRender: value => (
                        <span className={value === "Filled" ? classes.filled : 
-                                        value === "Ready for Delivery" ? classes.ready : 
+                                        value === "Ready for Pickup" ? classes.ready : 
                                             classes.in_progress}>
                                               {value}
                        </span>

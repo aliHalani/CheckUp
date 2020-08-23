@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
   logoWrapper: {
     display: 'flex',
-    flexGrow: 1
+    flexGrow: 1,
+    cursor: "pointer"
   },
   logo: {
     width: "200px"
@@ -119,9 +120,9 @@ export default function MainApp(props) {
         <CssBaseline />
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <div className={classes.logoWrapper}>
+            <a href="/dashboard" className={classes.logoWrapper}>
               <img src="/images/checkup.svg" className={classes.logo}/>
-            </div>
+            </a>
      
             <div>
             <Typography variant="subtitle2" color="inherit" className={classes.name} noWrap>

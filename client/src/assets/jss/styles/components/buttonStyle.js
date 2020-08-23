@@ -28,7 +28,7 @@ const buttonStyle = {
     border: "none",
     borderRadius: "3px",
     position: "relative",
-    padding: "12px 30px",
+    padding: "8px 18px",
     margin: ".3125rem 1px",
     fontSize: "12px",
     fontWeight: "400",
@@ -46,14 +46,6 @@ const buttonStyle = {
     "&:hover,&:focus": {
       color: whiteColor,
       backgroundColor: grayColor[0],
-      boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(grayColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(grayColor[0]) +
-        ", 0.2)"
     },
     "& .fab,& .fas,& .far,& .fal, &.material-icons": {
       position: "relative",
@@ -127,15 +119,7 @@ const buttonStyle = {
       hexToRgb(primaryColor[0]) +
       ", 0.12)",
     "&:hover,&:focus": {
-      backgroundColor: primaryColor[0],
-      boxShadow:
-        "0 14px 26px -12px rgba(" +
-        hexToRgb(primaryColor[0]) +
-        ", 0.42), 0 4px 23px 0px rgba(" +
-        hexToRgb(blackColor) +
-        ", 0.12), 0 8px 10px -5px rgba(" +
-        hexToRgb(primaryColor[0]) +
-        ", 0.2)"
+      backgroundColor: primaryColor[0]
     }
   },
   info: {

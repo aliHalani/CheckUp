@@ -155,6 +155,13 @@ def get_clinics():
 	clinics = {'clinics': [dict(p) for p in engine.execute(q)]}
 	return jsonify(clinics)
 
+@app.route('/pharmacies', methods=['GET'])
+def get_pharmacies():
+	q = "select * from pharmacy"
+
+	pharmacies = {'pharmacies': [dict(p) for p in engine.execute(q)]}
+	return jsonify(pharmacies)
+
 @app.route('/appointments', methods=['POST'])
 def create_appointment():
 	data = request.json
@@ -168,23 +175,6 @@ def create_appointment():
 	created = r.last_inserted_params()
 	created['id'] = r.inserted_primary_key[0]
 	print(get_appointment(created['id']))
-	return make_response(jsonify({
-		'message': 'Success',
-		'data': created}), 201)
-
-
-
-@app.route('/records', methods=['POST'])
-def create_record():
-	data = request.json
-	print(data)
-	conxn = engine.connect()
-	r = conxn.execute(assignments.insert(), course_id=data['course_id'], student_id=data['student_id'],
-		title=data['title'], assignment_date=data['assignment_date'], grade=data['grade'],
-		comments=data['comments'], attachment_path=data['attachment_path'])
-	created = r.last_inserted_params()
-	created['id'] = r.inserted_primary_key[0]
-
 	return make_response(jsonify({
 		'message': 'Success',
 		'data': created}), 201)

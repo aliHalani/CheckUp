@@ -42,6 +42,11 @@ INSERT INTO clinic (id, name, street_address, city, state, phone_number) VALUES
 INSERT INTO clinic (id, name, street_address, city, state, phone_number) VALUES 
   (3, "Whiteland General Clinic", "4895 Generation Road", "Oakville", "ON", "905-261-1452");
 
+  INSERT INTO pharmacy (id, name, street_address, city, state, phone_number) VALUES 
+  (1, "Orangeville Common Pharmacy", "345 Main Street", "Toronto", "ON", "416-272-8264");
+  INSERT INTO pharmacy (id, name, street_address, city, state, phone_number) VALUES 
+  (2, "Northstar Pharmacy", "732 King Street N", "Toronto", "ON", "416-561-6210");
+  
 
 INSERT INTO appointment (id, doctor_id, patient_id, clinic_id, description, notes, time, status) VALUES
   (1, 1, 6, 1, "Trouble rotating shoulder - possible strain.", "After examination, shoulder looks strained. 
@@ -56,8 +61,8 @@ INSERT INTO appointment (id, doctor_id, patient_id, clinic_id, description, note
   "2020-08-15 14:21:54", "Complete");
 
 
-INSERT INTO prescription (id, doctor_id, patient_id, appointment_id, name, description, status, fill_date, refill_date) VALUES
-  (1, 1, 6, 1, "Celebrex", "Prescribed as NSAID to help calm inflamation and relieve pain.", "Filled", "2020-04-12 15:34:13", null);
+INSERT INTO prescription (id, doctor_id, patient_id, appointment_id, pharmacy_id, name, description, status, fill_date, refill_date) VALUES
+  (1, 1, 6, 1, 1, "Celebrex", "Prescribed as NSAID to help calm inflamation and relieve pain.", "Filled", "2020-04-12 15:34:13", null);
 
-INSERT INTO prescription (id, doctor_id, patient_id, appointment_id, name, description, status, fill_date, refill_date) VALUES
-  (2, 1, 6, 2, "Relafen", "Prescribed to reduce swelling.", "Ready for Delivery", null, null);
+INSERT INTO prescription (id, doctor_id, patient_id, appointment_id, pharmacy_id, name, description, status, fill_date, refill_date) VALUES
+  (2, 1, 6, 2, 2, "Relafen", "Prescribed to reduce swelling.", "Ready for Pickup", null, null);

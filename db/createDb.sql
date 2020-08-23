@@ -32,6 +32,16 @@ CREATE TABLE clinic (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE pharmacy (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(150),
+  street_address VARCHAR(150),
+  city VARCHAR(150),
+  state VARCHAR(150),
+  phone_number VARCHAR(150),
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE appointment (
   id     INT unsigned NOT NULL AUTO_INCREMENT,
   doctor_id    INT unsigned NOT NULL,
@@ -52,13 +62,15 @@ CREATE TABLE prescription (
   doctor_id   INT unsigned NOT NULL,
   patient_id  INT unsigned NOT NULL,
   appointment_id INT unsigned NOT NULL,
+  pharmacy_id INT unsigned,
   name VARCHAR(150),
   description text,
-  status ENUM("Filled", "Processing", "Ready for Delivery"),
+  status ENUM("Filled", "Processing", "Ready for Pickup"),
   fill_date DATETIME,
   refill_date DATETIME,
   PRIMARY KEY (id),
   FOREIGN KEY (doctor_id) REFERENCES doctor(id),
   FOREIGN KEY (patient_id) REFERENCES patient(id),
-  FOREIGN KEY (appointment_id) REFERENCES appointment(id)
+  FOREIGN KEY (appointment_id) REFERENCES appointment(id),
+  FOREIGN KEY (pharmacy_id) REFERENCES pharmacy(id)
 );

@@ -62,10 +62,6 @@ export default function DraggableDialog(props) {
 
     const classes = useStyles();
 
-    useEffect(() => {
-        console.log(props.clinics);
-    });
-
     return (
         <div>
             <Dialog
@@ -89,7 +85,7 @@ export default function DraggableDialog(props) {
                         })}
                     >
                         {props.clinics.map(clinic => {
-                            return (<MenuItem value={clinic.id}>{clinic.name}</MenuItem>)
+                            return (<MenuItem value={clinic.id} key={clinic.id}>{clinic.name}</MenuItem>)
                         })}
                     </Select>
 

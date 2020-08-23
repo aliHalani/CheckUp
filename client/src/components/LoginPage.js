@@ -110,9 +110,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (globalUser.type === "doctor") {
-      history.push("/dashboard", {idToFetch: globalUser.id});
+      history.push("/dashboard", globalUser.id);
     } else if (globalUser.type === "patient") {
-      history.push("/dashboard");
+      history.push("/dashboard", globalUser.id);
     }
   }, [globalUser])
 
