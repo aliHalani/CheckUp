@@ -9,7 +9,7 @@ The front-end is built with React, which retrieves data from an API served by Fl
 
 ![Dashboard Preview](/docs/doctor_dashboard.png)
 
-View a full demo here: x.
+View a full demo here: https://youtu.be/xxFSwZda0Ng.
 
 
 ## How to Run
