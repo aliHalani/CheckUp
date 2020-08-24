@@ -121,6 +121,13 @@ export default function PatientDashboard() {
     const prescriptionDataTableOptions = {
         filterType: 'none',
         selectableRows: false,
+        customToolbar: () => {
+            if (user.type === "doctor") {
+                return <AppointmentToolbar  />
+            } else {
+                return null;
+            }
+        },
         expandableRows: true,
         expandableRowsHeader: false,
         isRowExpandable: () => true,
@@ -163,7 +170,7 @@ export default function PatientDashboard() {
                         </GridContainer>
                         <Button color="primary" 
                                 onClick={() => {
-                                    setSelectedAppointment(appointments.filter((appointment) => appointment.id === rowData[1])[0])
+                                    appointmentClick([appointments.filter((appointment) => appointment.id === rowData[1])[0].id]);
                                 }}
                                 style={{marginRight: "20px"}}>View Related Appointment</Button>                        
                         {rowData[5].props.children === "Ready for Pickup" && user.type === "patient" && <Button color="primary"
